@@ -6,10 +6,10 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Data
-@Entity
-@Table(name = "usuario")
-public class Usuario {
+@Entity(name="usuario")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="tipo_usuario", discriminatorType = DiscriminatorType.STRING)
+public abstract class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
