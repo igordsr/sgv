@@ -6,6 +6,7 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.UUID;
 
+@Data
 @Entity(name="usuario")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="tipo_usuario", discriminatorType = DiscriminatorType.STRING)
@@ -19,8 +20,6 @@ public abstract class Usuario {
     private String email;
     @Column(nullable = false)
     private String senha;
-    @Column(nullable = false)
-    private String tipoUsuario;
     @Column(nullable = false)
     private String rg;
     @Column(nullable = false)
