@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("E")
-public class Enfermeiro {
+public class Enfermeiro extends Usuario {
     @Column(nullable = false)
     Integer numeroCoren;
 }
