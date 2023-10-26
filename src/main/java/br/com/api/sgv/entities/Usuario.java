@@ -19,8 +19,7 @@ public abstract class Usuario {
     private String email;
     @Column(nullable = false)
     private String senha;
-    @Column(nullable = false)
-    private String tipoUsuario;
+
     @Column(nullable = false)
     private String rg;
     @Column(nullable = false)

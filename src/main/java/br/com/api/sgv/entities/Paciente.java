@@ -12,5 +12,5 @@ import java.util.UUID;
 public class Paciente extends Usuario {
     @OneToOne
     @JoinColumn(name = "idCarteiraVacina", referencedColumnName = "id")
-    UUID idCarteiraVacina;
+    private CarteiraVacina idCarteiraVacina;
 }
