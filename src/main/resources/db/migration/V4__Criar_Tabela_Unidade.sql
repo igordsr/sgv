@@ -1,7 +1,8 @@
-CREATE TABLE Unidade (
-                         id UUID PRIMARY KEY,
-                         nome VARCHAR(255),
-                         RegistroUnidade INT,
-                         Situação VARCHAR(255),
-                         Vacinas VARCHAR(255)
-);
+create table unidade (
+                         registro_unidade integer not null,
+                         id uuid not null,
+                         nome varchar(255) not null,
+                         situacao varchar(255) not null,
+                         vacinas varchar(255) not null,
+                         primary key (id)
+)
