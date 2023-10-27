@@ -1,28 +1,30 @@
 package br.com.api.sgv.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import jakarta.validation.constraints.Email;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.UUID;
-
+@Getter
+@Setter
 @Entity(name="usuario")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="tipoUsuario", discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    protected UUID id;
     @Column(nullable = false)
-    private String nome;
+    protected String nome;
+    @Email
     @Column(nullable = false)
-    private String email;
+    protected String email;
     @Column(nullable = false)
-    private String senha;
-
+    protected String senha;
     @Column(nullable = false)
-    private String rg;
+    protected String rg;
     @Column(nullable = false)
-    private LocalDate dataNascimento;
+    protected LocalDate dataNascimento;
 
 }
