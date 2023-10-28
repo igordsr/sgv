@@ -39,7 +39,6 @@ public class VacinaService {
             vacina.setDoseVacina(vacinaDTO.doseVacina());
             vacina.setNumeroLote(vacinaDTO.numeroLote());
             vacina.setQuantidade(vacinaDTO.quantidade());
-            this.vacinaRepository.saveAndFlush(vacina);
             return this.vacinaRepository.saveAndFlush(vacina).toDTO();
         } catch (EntityNotFoundException exception) {
             throw new ControllerNotFoundException("Vacina não Encontrada");
