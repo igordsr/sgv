@@ -1,7 +1,6 @@
 package br.com.api.sgv.dto;
 
 import br.com.api.sgv.entities.Vacina;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.UUID;
