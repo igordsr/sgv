@@ -1,7 +1,6 @@
 package br.com.api.sgv.entities;
 
 import br.com.api.sgv.dto.CarteiraVacinaDTO;
-import br.com.api.sgv.dto.VacinaDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

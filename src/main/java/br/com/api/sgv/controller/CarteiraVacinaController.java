@@ -1,7 +1,6 @@
 package br.com.api.sgv.controller;
 
 import br.com.api.sgv.dto.CarteiraVacinaDTO;
-import br.com.api.sgv.dto.VacinaDTO;
 import br.com.api.sgv.service.CarteiraVacinaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
