@@ -1,5 +1,6 @@
 package br.com.api.sgv.entities;
 
+import br.com.api.sgv.dto.VacinaDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,4 +27,20 @@ public class Vacina {
 
     @Column(nullable = false)
     private int quantidade;
+
+    public Vacina(){}
+
+    public Vacina(UUID id, String nomeVacina, String doseVacina, int numeroLote, int quantidade) {
+        this.id = id;
+        this.nomeVacina = nomeVacina;
+        this.doseVacina = doseVacina;
+        this.numeroLote = numeroLote;
+        this.quantidade = quantidade;
+    }
+
+    public VacinaDTO toDTO(){
+        return new VacinaDTO(this.id,this.nomeVacina,this.doseVacina,this.numeroLote,this.quantidade);
+    }
 }
+
+
