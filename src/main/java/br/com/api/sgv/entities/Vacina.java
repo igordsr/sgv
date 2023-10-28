@@ -41,6 +41,8 @@ public class Vacina {
     public VacinaDTO toDTO(){
         return new VacinaDTO(this.id,this.nomeVacina,this.doseVacina,this.numeroLote,this.quantidade);
     }
+
+
 }
 
 
