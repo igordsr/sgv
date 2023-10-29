@@ -4,7 +4,7 @@ Sistema de Gerenciamento de Vacinas
 
 curl para import no postman
 
-#Vacinas
+# Vacinas
 
 
 Cria Vacina
@@ -56,6 +56,63 @@ curl --location --request PUT 'http://localhost:8080/vacinas/dcb1199d-fe34-4e11-
 Deleta Vacina
 
 curl --location --request DELETE 'http://localhost:8080/vacinas/dcb1199d-fe34-4e11-9ab5-aab2f9c8633d' \
+--data ''
+
+
+# VacinasAplicadas
+
+Cria VacinaAplicada
+
+curl --location 'http://localhost:8080/vacinasAplicadas' \
+--header 'Content-Type: application/json' \
+--data '{
+    "vacina":{
+    "id": "d18f3814-e5e1-4ef6-8177-242e6be278ad",
+    "nomeVacina": "Coronavac",
+    "doseVacina": "Segunda Dose",
+    "numeroLote": 1652,
+    "quantidade": 5548980
+},
+"nomeVacina": "Coronavac",
+"doseVacina": "Segunda Dose",
+"dataAplicacao": "2023-10-29",
+"numeroLote": 1652
+}'
+
+Atualizada VacinaAplicada
+
+curl --location --request PUT 'http://localhost:8080/vacinasAplicadas/83579284-0f94-4938-af4c-1aa30e45ac6b' \
+--header 'Content-Type: application/json' \
+--data '{
+    "vacina":{
+    "id": "d18f3814-e5e1-4ef6-8177-242e6be278ad",
+    "nomeVacina": "Coronavac",
+    "doseVacina": "Segunda Dose",
+    "numeroLote": 1111,
+    "quantidade": 5548980
+},
+"nomeVacina": "Coronavac",
+"doseVacina": "Segunda Dose",
+"dataAplicacao": "2023-10-29"
+}'
+
+
+Deleta VacinaAplicada
+
+
+curl --location --request DELETE 'http://localhost:8080/vacinasAplicadas/83579284-0f94-4938-af4c-1aa30e45ac6b' \
+--data ''
+
+
+Busca Todas VacinasAplicadas
+
+curl --location 'http://localhost:8080/vacinasAplicadas' \
+--data ''
+
+
+Busca VacinaAplicada
+
+curl --location 'http://localhost:8080/vacinasAplicadas/83579284-0f94-4938-af4c-1aa30e45ac6b' \
 --data ''
 
 
