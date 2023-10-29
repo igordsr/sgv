@@ -1,8 +1,8 @@
 CREATE TABLE vacina(
                        id UUID PRIMARY KEY,
-                       NomeVacina VARCHAR(255),
-                       doseVacina VARCHAR(255),
-                       numeroLote INT,
+                       nome_vacina VARCHAR(255),
+                       dose_vacina VARCHAR(255),
+                       numero_lote INT,
                        quantidade INT
 );
 
@@ -10,10 +10,10 @@ CREATE TABLE vacina(
 
 CREATE TABLE vacina_aplicada(
                         id UUID PRIMARY KEY,
-                        idVacina  UUID,
-                        NomeVacina VARCHAR(255),
-                        doseVacina VARCHAR(255),
+                        vacina_id  UUID,
+                        nome_vacina VARCHAR(255),
+                        dose_vacina VARCHAR(255),
                         data_aplicacao DATE,
-                        numeroLote INT,
-                        FOREIGN KEY (idVacina) REFERENCES vacina(id)
+                        numero_lote INT,
+                        FOREIGN KEY (vacina_id) REFERENCES vacina(id)
 );
