@@ -1,9 +1,12 @@
 package br.com.api.sgv.entities;
 
+import br.com.api.sgv.dto.RegistroDeVacinaDTO;
 import br.com.api.sgv.dto.VacinaAplicadaDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -11,17 +14,18 @@ import java.util.UUID;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 public class VacinaAplicada {
-    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @EqualsAndHashCode.Include
     private UUID id;
+
+    @ManyToOne
+    @JoinColumn(name = "carteira_vacina_id")
+    private CarteiraVacina carteiraVacina;
 
     @ManyToOne
     @JoinColumn(name = "vacina_id")
     private Vacina vacina;
-
-    @Column(nullable = false)
-    private String nomeVacina;
 
     @Column(nullable = false)
     private String doseVacina;
@@ -29,22 +33,23 @@ public class VacinaAplicada {
     @Column(nullable = false)
     private LocalDate dataAplicacao;
 
-    @Column(nullable = false)
-    private int numeroLote;
 
     public VacinaAplicada() {
+
     }
 
-    public VacinaAplicada(UUID id, Vacina vacina, String nomeVacina, String doseVacina, LocalDate dataAplicacao, int numeroLote) {
-        this.id = id;
+    public VacinaAplicada(CarteiraVacina carteiraVacina, Vacina vacina, String doseVacina, LocalDate dataAplicacao) {
+        this.carteiraVacina = carteiraVacina;
         this.vacina = vacina;
-        this.nomeVacina = nomeVacina;
         this.doseVacina = doseVacina;
         this.dataAplicacao = dataAplicacao;
-        this.numeroLote = numeroLote;
     }
 
     public VacinaAplicadaDTO toDTO(){
-        return new VacinaAplicadaDTO(this.id,this.vacina,this.nomeVacina,this.doseVacina,this.dataAplicacao,this.numeroLote);
+        return new VacinaAplicadaDTO(this.id, this.carteiraVacina.getNumeroSus(), this.vacina.getId(), this.doseVacina, this.dataAplicacao);
+    }
+
+    public RegistroDeVacinaDTO toRegistroDeVacinaDTO(){
+        return new RegistroDeVacinaDTO(this.id, this.vacina.getId(), this.vacina.getNomeVacina(), this.doseVacina, this.dataAplicacao);
     }
 }

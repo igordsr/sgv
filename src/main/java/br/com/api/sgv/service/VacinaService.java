@@ -36,7 +36,6 @@ public class VacinaService {
         try {
             Vacina vacina = this.vacinaRepository.getReferenceById(id);
             vacina.setNomeVacina(vacinaDTO.nomeVacina());
-            vacina.setDoseVacina(vacinaDTO.doseVacina());
             vacina.setNumeroLote(vacinaDTO.numeroLote());
             vacina.setQuantidade(vacinaDTO.quantidade());
             return this.vacinaRepository.saveAndFlush(vacina).toDTO();
