@@ -2,15 +2,13 @@ package br.com.api.sgv.service;
 
 import br.com.api.sgv.controller.exception.ControllerNotFoundException;
 import br.com.api.sgv.dto.PacienteDTO;
+import br.com.api.sgv.entities.CarteiraVacina;
 import br.com.api.sgv.entities.Paciente;
-import br.com.api.sgv.entities.Unidade;
 import br.com.api.sgv.repository.PacienteRepository;
-import br.com.api.sgv.repository.UnidadeRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -27,19 +25,22 @@ public class PacienteService {
     }
 
     public PacienteDTO save(PacienteDTO pacienteDTO) throws ControllerNotFoundException {
-        Paciente paciente = new Paciente(pacienteDTO.nome(), pacienteDTO.email(), pacienteDTO.senha(), pacienteDTO.rg(), pacienteDTO.dataNascimento());
+        Paciente paciente = pacienteDTO.toModel();
         paciente = this.pacienteRepository.save(paciente);
         return paciente.toDto();
     }
+
     public PacienteDTO update(UUID id, PacienteDTO pacienteDTO) throws ControllerNotFoundException {
         try {
             Paciente paciente = this.pacienteRepository.getReferenceById(id);
+            CarteiraVacina carteiraVacina = pacienteDTO.toModel().getCarteiraVacina();
 
             paciente.setNome(pacienteDTO.nome());
             paciente.setEmail(pacienteDTO.email());
             paciente.setSenha(pacienteDTO.senha());
             paciente.setRg(pacienteDTO.rg());
             paciente.setDataNascimento(pacienteDTO.dataNascimento());
+            paciente.getCarteiraVacina().setNumeroSus(carteiraVacina.getNumeroSus());
 
             this.pacienteRepository.saveAndFlush(paciente);
             return paciente.toDto();
@@ -48,6 +49,7 @@ public class PacienteService {
         }
 
     }
+
     public void delete(UUID id) throws ControllerNotFoundException {
         this.pacienteRepository.deleteById(id);
     }
