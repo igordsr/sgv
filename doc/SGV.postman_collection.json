@@ -1,0 +1,621 @@
+{
+	"info": {
+		"_postman_id": "1d0300e7-aee2-4440-9fa2-3f7b6a15e7ad",
+		"name": "SGV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7576612",
+		"_collection_link": "https://lively-crater-229902.postman.co/workspace/New-Team-Workspace~bbb806cb-a540-461b-8b27-42650f2f9896/collection/7576612-1d0300e7-aee2-4440-9fa2-3f7b6a15e7ad?action=share&source=collection_link&creator=7576612"
+	},
+	"item": [
+		{
+			"name": "Unidade",
+			"item": [
+				{
+					"name": "Criar Unidade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"Unidade Teste\",\r\n    \"registroUnidade\" : 85,\r\n    \"situacao\" : \"Não Operante\",\r\n    \"vacinas\": \"COVID-19\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/unidade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"unidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Todas as Unidades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/unidade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"unidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Unidade Pelo Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/unidade/dc69937c-13dc-4c1d-a06d-36fc07f1438c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"unidade",
+								"dc69937c-13dc-4c1d-a06d-36fc07f1438c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Unidade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/unidade/6452f800-7fab-4168-abab-ecd5093c86c2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"unidade",
+								"6452f800-7fab-4168-abab-ecd5093c86c2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Unidade",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Unidade Teste Atualizada\",\r\n    \"registroUnidade\": 90,\r\n    \"situacao\": \"Operante\",\r\n    \"vacinas\": \"COVID-19#~#Gripe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/unidade/dc69937c-13dc-4c1d-a06d-36fc07f1438c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"unidade",
+								"dc69937c-13dc-4c1d-a06d-36fc07f1438c"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Requests para controlar as unidades de atendimento"
+		},
+		{
+			"name": "Paciente",
+			"item": [
+				{
+					"name": "Criar Paciente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"dataNascimento\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"senha\": \"senha\",\r\n    \"rg\": \"rg\",\r\n    \"dataNascimento\": \"2023-10-27\",\r\n    \"numeroSus\": 1234\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/paciente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paciente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Paciente Pelo Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/paciente/f7a1923f-d921-48f2-8d6a-ca4228580d04",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paciente",
+								"f7a1923f-d921-48f2-8d6a-ca4228580d04"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Paciente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/paciente/3bae8ec8-f6e8-433c-9e2e-aee858f3b231",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paciente",
+								"3bae8ec8-f6e8-433c-9e2e-aee858f3b231"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Paciente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"dataNascimento Atualizado\",\r\n    \"numeroSus\": 1234,\r\n    \"email\": \"email_atualizado@gmail.com\",\r\n    \"senha\": \"senha_atualizado\",\r\n    \"rg\": \"rg_atualizado\",\r\n    \"dataNascimento\": \"2023-11-27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/paciente/f7a1923f-d921-48f2-8d6a-ca4228580d04",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paciente",
+								"f7a1923f-d921-48f2-8d6a-ca4228580d04"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enfermeiro",
+			"item": [
+				{
+					"name": "Criar Enfermeiro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"dataNascimento\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"senha\": \"senha\",\r\n    \"rg\": \"rg\",\r\n    \"dataNascimento\": \"2023-10-27\",\r\n    \"numeroCoren\" : 123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/enfermeiro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enfermeiro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Enfermeiro Pelo Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/enfermeiro/03667812-f0ce-4034-a5b4-1cc8533f4ef0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enfermeiro",
+								"03667812-f0ce-4034-a5b4-1cc8533f4ef0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Enfermeiro",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/enfermeiro/03667812-f0ce-4034-a5b4-1cc8533f4ef0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enfermeiro",
+								"03667812-f0ce-4034-a5b4-1cc8533f4ef0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Enfermeiro",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"dataNascimento Atualizado\",\r\n    \"email\": \"email_atualizado@gmail.com\",\r\n    \"senha\": \"senha_atualizado\",\r\n    \"rg\": \"rg_atualizado\",\r\n    \"dataNascimento\": \"2023-12-27\",\r\n    \"numeroCoren\" : 789\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/enfermeiro/03667812-f0ce-4034-a5b4-1cc8533f4ef0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enfermeiro",
+								"03667812-f0ce-4034-a5b4-1cc8533f4ef0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vacina",
+			"item": [
+				{
+					"name": "Cria Vacina",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomeVacina\": \"CoronaVac\",\r\n    \"numeroLote\": 1652,\r\n    \"quantidade\": 55980\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/vacinas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vacinas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Altera Vacina",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomeVacina\": \"Pfizer\",\r\n    \"doseVacina\": \"Segunda Dose\",\r\n    \"numeroLote\": 1652,\r\n    \"quantidade\": 55980\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/vacinas/6728d7b9-fad5-45c9-bb41-71a8890655d0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vacinas",
+								"6728d7b9-fad5-45c9-bb41-71a8890655d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta Vacina",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomeVacina\": \"Pfizer\",\r\n    \"doseVacina\": \"Segunda Dose\",\r\n    \"numeroLote\": 1652,\r\n    \"quantidade\": 55980\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/vacinas/6728d7b9-fad5-45c9-bb41-71a8890655d0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vacinas",
+								"6728d7b9-fad5-45c9-bb41-71a8890655d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscas todas as Vacinas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/vacinas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vacinas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscas a Vacinas pelo Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/vacinas/6728d7b9-fad5-45c9-bb41-71a8890655d0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vacinas",
+								"6728d7b9-fad5-45c9-bb41-71a8890655d0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vacina Aplicada",
+			"item": [
+				{
+					"name": "Registra Vacina Aplicada",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroSus\": 1234,\r\n    \"vacinaId\":\"b00e59f3-cc57-4510-9c8d-95a2e1d766c1\",\r\n    \"doseVacina\": \"Segunda Dose\",\r\n    \"dataAplicacao\": \"2023-10-29\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/vacinasAplicadas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vacinasAplicadas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca todas Vacina Aplicadas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroSus\": 1234,\r\n    \"vacinaId\":\"b00e59f3-cc57-4510-9c8d-95a2e1d766c1\",\r\n    \"doseVacina\": \"Segunda Dose\",\r\n    \"dataAplicacao\": \"2023-10-29\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/vacinasAplicadas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vacinasAplicadas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Vacina Aplicadas Pelo Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroSus\": 1234,\r\n    \"vacinaId\":\"b00e59f3-cc57-4510-9c8d-95a2e1d766c1\",\r\n    \"doseVacina\": \"Segunda Dose\",\r\n    \"dataAplicacao\": \"2023-10-29\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/vacinasAplicadas/43476497-0bec-41a4-ab71-80b41a7715f5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vacinasAplicadas",
+								"43476497-0bec-41a4-ab71-80b41a7715f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Altera Vacina Aplicada",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroSus\": 1234,\r\n    \"vacinaId\":\"6728d7b9-fad5-45c9-bb41-71a8890655d0\",\r\n    \"doseVacina\": \"Terceira Dose\",\r\n    \"dataAplicacao\": \"2023-10-29\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/vacinasAplicadas/43476497-0bec-41a4-ab71-80b41a7715f5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vacinasAplicadas",
+								"43476497-0bec-41a4-ab71-80b41a7715f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta Vacina Aplicada",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroSus\": 1234,\r\n    \"vacinaId\":\"6728d7b9-fad5-45c9-bb41-71a8890655d0\",\r\n    \"doseVacina\": \"Terceira Dose\",\r\n    \"dataAplicacao\": \"2023-10-29\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/vacinasAplicadas/43476497-0bec-41a4-ab71-80b41a7715f5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vacinasAplicadas",
+								"43476497-0bec-41a4-ab71-80b41a7715f5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
