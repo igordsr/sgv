@@ -7,9 +7,10 @@ além de fornecer justificativas para as decisões arquiteturais.
 ### Paciente
 Cria Paciente
 
+
 curl --location 'http://localhost:8080/paciente' \
 --header 'Content-Type: application/json' \
---data '{
+--data-raw '{
     "nome": "dataNascimento",
     "email": "email@gmail.com",
     "senha": "senha",
@@ -18,17 +19,19 @@ curl --location 'http://localhost:8080/paciente' \
     "numeroSus": 1234
 }'
 
+
 Busca Paciente
 
-curl --location --request GET 'http://localhost:8080/paciente/5a7e7b41-f9b0-42fa-8104-831ba03a3181' \
---header 'Content-Type: application/json' \
---data ''
+curl --location 'http://localhost:8080/paciente/ee201bfc-702b-4beb-a174-7c9d5ecf34f3'
+
+
+
 
 Atualiza Paciente
 
 curl --location --request PUT 'http://localhost:8080/paciente/5a7e7b41-f9b0-42fa-8104-831ba03a3181' \
 --header 'Content-Type: application/json' \
---data '{
+--data-raw '{
     "nome": "dataNascimento Atualizado",
     "numeroSus": 1234,
     "email": "email_atualizado@gmail.com",
@@ -39,10 +42,11 @@ curl --location --request PUT 'http://localhost:8080/paciente/5a7e7b41-f9b0-42fa
 
 Deleta Paciente
 
-curl --location --request DELETE 'http://localhost:8080/paciente/5a7e7b41-f9b0-42fa-8104-831ba03a3181' \
---data ''
+curl --location --request DELETE 'http://localhost:8080/paciente/5a7e7b41-f9b0-42fa-8104-831ba03a3181'
+
 
 ### Vacinas
+
 Cria Vacina
 
 curl --location 'http://localhost:8080/vacinas' \
@@ -53,88 +57,60 @@ curl --location 'http://localhost:8080/vacinas' \
     "quantidade": 55980
 }'
 
-Busca vacina
 
-curl --location --request GET 'http://localhost:8080/vacinas/3a000d97-629d-4b89-89e5-4b7ae706b4a5' \
---header 'Content-Type: application/json' \
---data '{
-    "id": "3a000d97-629d-4b89-89e5-4b7ae706b4a5",
-    "nomeVacina": "CoronaVac",
-    "numeroLote": 1652,
-    "quantidade": 55980
-}'
+Busca vacina por Id
+
+curl --location 'http://localhost:8080/vacinas/3a000d97-629d-4b89-89e5-4b7ae706b4a5'
 
 Busca Todas Vacinas
 
-curl --location --request GET 'http://localhost:8080/vacinas' \
---header 'Content-Type: application/json' \
---data '{
-    "nomeVacina": "CoronaVac",
-    "doseVacina": "Primeira Dose",
-    "numeroLote": 123,
-    "quantidade": 5980
-}'
 
+curl --location 'http://localhost:8080/vacinas'
 
 Atualiza Vacina
 
-curl --location --request PUT 'http://localhost:8080/vacinas/dcb1199d-fe34-4e11-9ab5-aab2f9c8633d' \
+curl --location --request PUT 'http://localhost:8080/vacinas/6728d7b9-fad5-45c9-bb41-71a8890655d0' \
 --header 'Content-Type: application/json' \
 --data '{
     "nomeVacina": "CoronaVac",
-    "doseVacina": "Primeira Dose",
-    "numeroLote": 123,
-    "quantidade": 8980
+    "numeroLote": 1652,
+    "quantidade": 55
 }'
 
 Deleta Vacina
 
-curl --location --request DELETE 'http://localhost:8080/vacinas/dcb1199d-fe34-4e11-9ab5-aab2f9c8633d' \
+curl --location --request DELETE 'http://localhost:8080/vacinas/377fe5a8-0430-46e6-82ae-6910a2159fa9' \
 --data ''
 
-
 ### VacinasAplicadas
+
 
 Cria VacinaAplicada
 
 curl --location 'http://localhost:8080/vacinasAplicadas' \
 --header 'Content-Type: application/json' \
 --data '{
-    "vacina":{
-    "id": "d18f3814-e5e1-4ef6-8177-242e6be278ad",
-    "nomeVacina": "Coronavac",
+    "numeroSus": 1234,
+    "vacinaId":"86ab361c-91b9-4404-a9b3-8f4b18c5ee1f",
     "doseVacina": "Segunda Dose",
-    "numeroLote": 1652,
-    "quantidade": 5548980
-},
-"nomeVacina": "Coronavac",
-"doseVacina": "Segunda Dose",
-"dataAplicacao": "2023-10-29",
-"numeroLote": 1652
+    "dataAplicacao": "2023-10-29"
 }'
 
-Atualizada VacinaAplicada
+Atualiza VacinaAplicada
 
-curl --location --request PUT 'http://localhost:8080/vacinasAplicadas/83579284-0f94-4938-af4c-1aa30e45ac6b' \
+
+curl --location --request PUT 'http://localhost:8080/vacinasAplicadas/43476497-0bec-41a4-ab71-80b41a7715f5' \
 --header 'Content-Type: application/json' \
 --data '{
-    "vacina":{
-    "id": "d18f3814-e5e1-4ef6-8177-242e6be278ad",
-    "nomeVacina": "Coronavac",
-    "doseVacina": "Segunda Dose",
-    "numeroLote": 1111,
-    "quantidade": 5548980
-},
-"nomeVacina": "Coronavac",
-"doseVacina": "Segunda Dose",
-"dataAplicacao": "2023-10-29"
+    "numeroSus": 1234,
+    "vacinaId":"6728d7b9-fad5-45c9-bb41-71a8890655d0",
+    "doseVacina": "Terceira Dose",
+    "dataAplicacao": "2023-10-29"
 }'
-
 
 Deleta VacinaAplicada
 
-
-curl --location --request DELETE 'http://localhost:8080/vacinasAplicadas/83579284-0f94-4938-af4c-1aa30e45ac6b' \
+curl --location --request DELETE 'http://localhost:8080/vacinasAplicadas/43476497-0bec-41a4-ab71-80b41a7715f5' \
 --data ''
 
 
@@ -143,91 +119,12 @@ Busca Todas VacinasAplicadas
 curl --location 'http://localhost:8080/vacinasAplicadas' \
 --data ''
 
-
 Busca VacinaAplicada
 
-curl --location 'http://localhost:8080/vacinasAplicadas/83579284-0f94-4938-af4c-1aa30e45ac6b' \
+
+curl --location 'http://localhost:8080/vacinasAplicadas/43476497-0bec-41a4-ab71-80b41a7715f5' \
 --data ''
 
-### Unidade
-Cria Unidade
-
-curl --location 'http://localhost:8080/unidade' \
---header 'Content-Type: application/json' \
---data '{
-    "nome" : "Unidade Teste",
-    "registroUnidade" : 85,
-    "situacao" : "Não Operante",
-    "vacinas": "COVID-19"
-}'
-
-Busca Unidade
-
-curl --location --request GET 'http://localhost:8080/unidade/4c3ba847-6d3f-4230-bd63-80bb6ffb6d7b' \
---header 'Content-Type: application/json' \
---data ''
-
-Busca Todas Unidades
-
-curl --location --request GET 'http://localhost:8080/unidade' \
---header 'Content-Type: application/json' \
---data ''
-
-
-Atualiza Unidade
-
-curl --location --request PUT 'http://localhost:8080/unidade/4c3ba847-6d3f-4230-bd63-80bb6ffb6d7b' \
---header 'Content-Type: application/json' \
---data '{
-"nome": "Unidade Teste Atualizada",
-"registroUnidade": 90,
-"situacao": "Operante",
-"vacinas": "COVID-19#~#Gripe"
-}'
-
-Deleta Unidade
-
-curl --location --request DELETE 'http://localhost:8080/unidade/4c3ba847-6d3f-4230-bd63-80bb6ffb6d7b' \
---data ''
-
-### Enfermeiro
-Cria Enfermeiro
-
-curl --location 'http://localhost:8080/enfermeiro' \
---header 'Content-Type: application/json' \
---data '{
-    "nome": "dataNascimento",
-    "email": "email@gmail.com",
-    "senha": "senha",
-    "rg": "rg",
-    "dataNascimento": "2023-10-27",
-    "numeroCoren" : 123
-}'
-
-Busca Enfermeiro
-
-curl --location --request GET 'http://localhost:8080/enfermeiro/def098ba-3c8f-4d13-9ae6-b1e71bad6d61' \
---header 'Content-Type: application/json' \
---data ''
-
-Atualiza Enfermeiro
-
-curl --location --request PUT 'http://localhost:8080/enfermeiro/def098ba-3c8f-4d13-9ae6-b1e71bad6d61' \
---header 'Content-Type: application/json' \
---data '{
-"id": "def098ba-3c8f-4d13-9ae6-b1e71bad6d61",
-"nome": "dataNascimento Atualizado",
-"email": "email_atualizado@gmail.com",
-"senha": "senha_atualizado",
-"rg": "rg_atualizado",
-"dataNascimento": "2023-12-27",
-"numeroCoren": 789
-}'
-
-Deleta Enfermeiro
-
-curl --location --request DELETE 'http://localhost:8080/enfermeiro/def098ba-3c8f-4d13-9ae6-b1e71bad6d61' \
---data ''
 
 ## 2. História
 Um hospital XPTO precisa que seu controle de vacinas seja otimizado e sistematizado em um software que possibilite que 
