@@ -49,7 +49,7 @@ public class PacienteService {
         }
 
     }
-
+    @Deprecated
     public void delete(UUID id) throws ControllerNotFoundException {
         this.pacienteRepository.deleteById(id);
     }

@@ -34,6 +34,7 @@ public class PacienteController {
         return ResponseEntity.ok(pacienteDTO);
     }
 
+    @Deprecated
     @DeleteMapping("/{id}")
     public void delete(@PathVariable UUID id) {
         this.pacienteService.delete(id);
