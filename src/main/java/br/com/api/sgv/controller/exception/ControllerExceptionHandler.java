@@ -26,6 +26,18 @@ public class ControllerExceptionHandler {
         return ResponseEntity.status(code).body(this.stardardError);
     }
 
+    @ExceptionHandler(DoseException.class)
+    public ResponseEntity<StardardError> doseAlreadyApplied(DoseException err, HttpServletRequest httpServletRequest){
+        HttpStatus code = HttpStatus.BAD_REQUEST;
+        stardardError.setTimestamp(Instant.now());
+        stardardError.setStatus(code.value());
+        stardardError.setError("dose already applied");
+        stardardError.setMessage(err.getMessage());
+        stardardError.setPath(httpServletRequest.getRequestURI());
+
+        return ResponseEntity.status(code).body(this.stardardError);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<StardardError> validation(MethodArgumentNotValidException err, HttpServletRequest httpServletRequest) {
         HttpStatus code = HttpStatus.BAD_REQUEST;
